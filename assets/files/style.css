@@ -1,0 +1,111 @@
+/*Style*/
+@font-face {
+    font-family: 'MLB-TTAswathi';
+    src: url('MLB-TTAswathi-Normal.woff2') format('woff2'),
+        url('MLB-TTAswathi-Normal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+.header h2{
+    font-family: 'MLB-TTAswathi';
+    font-size: 37px!important;
+    font-weight: 700;
+}
+.seperator-div>.row>.col-12 {
+    margin-bottom: 7px;
+}
+.header h2 img{
+    max-width: 100%;
+    height: auto;
+    width: 60px;
+    margin-right:15px;
+    display:inline-block;
+}
+.header .row {
+    align-items: center;
+}
+.header{
+    height:auto!important;
+}
+.au-edit-btn{
+    background-color: #4381C1;
+    color: #fff;
+}
+input.form-error-class,textarea.form-error-class{
+    border: 1px solid red;
+}
+input.form-error-class:focus,textarea.form-error-class:focus{
+    border: 1px solid red;
+    box-shadow: 0 0 0 0.2rem rgb(255 0 47 / 25%);
+}
+span.form-error-class{
+    color: red;
+}
+
+.au-remove-pointer-events{
+    pointer-events: none;
+}
+
+/******************Revisit*******************/
+#revisitDataTable tbody tr:nth-of-type(odd){
+    background-color: #92cddcb8;
+}
+#revisitDataTable tbody tr:nth-of-type(even){
+    background-color: #9bd1df7a;
+}
+#myModal .modal-content{
+    background-color: #daeef3;
+}
+#myModal .modal-header{
+    background-color: #92cddc;
+}
+#searchedModalBody thead tr{
+    background-color: #4381c1;
+    color: white;
+}
+#searchedModalBody tbody tr:nth-of-type(odd){
+    background-color: #92cddcb8;
+}
+#searchedModalBody tbody tr:nth-of-type(even){
+    background-color: #9bd1df7a;
+}
+#myModal .modal-footer button{
+    background-color: #4381c1;
+    color: white;
+}
+.footer-sec a, .footer-sec button[type="button"] {
+    background-color: #ffffffcc;
+    height: 41px;
+}
+/*table height dynamic property*/
+#searchedModalBody.height{
+    height: 350px;
+    overflow: auto;
+}
+div#searchedModalBody table tbody tr {
+    cursor: pointer;
+}
+div#searchedModalBody table{margin-bottom: 0;}
+.form-control {width: 90%;display:inline-block;}
+.tooltip-inner {
+    background-color: #999!important;
+}
+.form-error-class{color: #999;}
+
+#regDate.au-disabled{
+    background-color: #e9ecef;
+    /*background-color: red;*/
+}
+.btn-primary:focus,.btn-primary:active{
+    background-color: #4381c1!important;
+    border-color: #4381c1!important;
+    box-shadow: 0 0 0 0.2rem rgb(114 184 255)!important;
+}
+.btn-primary{color: red;}
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #4381c1!important;
+    border-color: #4381c1!important;
+    box-shadow: 0 0 0 0.2rem rgb(114 184 255)!important;
+    cursor: not-allowed;
+}

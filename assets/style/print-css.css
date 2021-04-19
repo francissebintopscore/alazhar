@@ -1,0 +1,115 @@
+@media print{
+		.id{
+			width: 3.5in;
+			height: 2in;
+			position: relative;
+			z-index: 2;
+			font-family: Arial, Helvetica, sans-serif;
+
+		}
+		.bg-back{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.barcode{}
+		.barcode img{
+			max-width: 100%;
+			height: auto;
+		}
+		.content{
+			font-size: 14px;
+			color: #111;
+			line-height: 22px;
+		}
+		#sticker{
+			padding:5px 10px;
+			width: 8cm;
+			height: 4cm;
+		}
+		#sticker .barcode {
+		    position: absolute;
+		    right: 0px;
+		    top: 40px;
+		}
+		#sticker .barcode div{
+			text-align:center;
+		}
+		#sticker .barcode div b{font-size: 18px;font-weight: bold;}
+		.au-custom-btn {
+		    display: inline-block;
+		    font-weight: 400;
+		    text-align: center;
+		    white-space: nowrap;
+		    vertical-align: middle;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    border: 1px solid transparent;
+		    padding: .375rem .75rem;
+		    font-size: 1rem;
+		    line-height: 1.5;
+		    border-radius: .25rem;
+		    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		        color: #fff;
+	    background-color: #007bff;
+	    border-color: #007bff;
+	    cursor: pointer;
+		}
+		.btn-primary:hover {
+		    color: #fff;
+		    background-color: #0069d9;
+		    border-color: #0062cc;
+		}
+		#sticker .content{
+			    padding-right: 110px;
+		}
+		.au-custom-btn{
+			display: none!important;
+		}
+		#id-front .content {
+		        font-size: 14px;
+			    color: #111;
+			    line-height: 20px;
+			    position: relative;
+			    left: 67px;
+			    top: 131px;
+		}
+		.reg-date{
+			font-size: 13px;
+			color: #111;
+			line-height: 16px;
+			position: absolute;
+			left: 115px;
+    		top: 85px;
+		}
+		.reg-date b{
+			font-size: 16px;
+			font-weight: bold;
+		}
+		#id-front .barcode img{
+			width: 140px;
+    		height: auto;
+		}
+		#id-front .barcode{
+			position: absolute;
+    		/*right: 45px;
+    		top: 130px;*/
+    		left: 56px;
+    		bottom: 20px;
+		    display: inline-block;
+		}
+		#id-front, #id-back{
+			width: 13cm;
+			height: 8cm;
+		}
+		body{
+			margin: 0;
+		}
+		#id-back{margin-top: 18px;}
+	}

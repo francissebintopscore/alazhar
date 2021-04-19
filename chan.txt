@@ -1,0 +1,46 @@
+http://localhost:81/sebin/codeigniter/alazhar/index.php/dashboard/patientsRecord/Printing/index/3/2100110
+Following corrections need to be done in patient registration form
+
+
+
+Registration id should start with year code instead of Alphabet. but previous numbers should continue with alphabet itself
+
+ie 21 for this year registration - 2100099 (earlier it was D00099)
+
+Sticker printing for file facing sheet also need to finalized, if separate printer require it should be initiated
+
+
+
+Abeesh M
+
+
+Corrections - Registration Form
+Registration date text box must be faded when it is not editable
+While clicking save and print the data is saved but not controls are not cleared. So duplicate entry is happening
+Remarks and blood group controls must be moved up so that the spcing between controls will be same for all the controls
+Color of the save and print button should be made identical to save button in all cases 
+Color of the check boxes and print button should be made identical to save button in all cases . It is not showing the color in firefox
+Remarks and bloodgroup columns may be interchanged in columns postions
+ 
+Corrections - Re Visit Form
+Search text box must be left aligned to the below textboxes******
+
+While chainging search options, text in the search text box shouldint be cleareed
+
+While searching if the record exactly match with the given search text, then the data need to be populated in the 
+form automaticaly. Otherwise, even if there is only one record, the search list must be popup++++++
+
+Edit Registration button must be positined at the right bottom of the rectangle
+
+If the search result is no records found then the form must be cleared
+
+In the search result popup include all the remining fields next to the existing fields+++++++
+
+While the search result popups, the given search text must be populated in the corresponding text box+++++
+
+Refresh, Cancel and Confirm Buttons should have the same size +++++++
+
+Edit button should be disabled for the canceled booking rows
+
+Font of all the records in patient details rectangle should be of same size of the adrees detail's font
+The search result popup window is seen broken in firefox browser
