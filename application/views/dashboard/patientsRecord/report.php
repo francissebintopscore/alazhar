@@ -238,7 +238,8 @@
     <ul>
         <li><a href="<?php echo base_url();?>index.php/dashboard/patientsRecord/RecordCreation/">Registration</a></li>
         <li><a href="<?php echo base_url();?>index.php/dashboard/patientsRecord/Revisit/">Revisit</a></li>
-        <li><a href="<?php echo base_url();?>index.php/dashboard/patientsRecord/Report/">Report</a></li>
+        <li><a href="<?php echo base_url();?>index.php/dashboard/patientsRecord/Report/">Revisit Report</a></li>
+        <li><a href="<?php echo base_url();?>index.php/dashboard/patientsRecord/Report/patients">Patient Report</a></li>
     </ul>
 </div>
 <div class="custom-container">
@@ -363,7 +364,8 @@ $(function() {
 });
 </script>
 <script type="text/javascript">
-var dataTable;
+
+    var dataTable;
 
 	$(document).ready(function(){
 
@@ -380,64 +382,30 @@ var dataTable;
             
         $('input[name="datetimes"]').on('change',function(){
             $('#date_filter_value').val($('#date_filter').val());
-            dataTable.clear();
-            dataTable.destroy();
-            buildDataTable();
-            // dataTable.ajax.reload();
+
+  
+            $.ajax({
+                url:"<?php echo base_url();?>index.php/dashboard/patientsRecord/Report/visitDetails",
+                type:"POST",
+                data:{
+                    from:$('#date_filter').val().split(' - ')[0],
+                    to:$('#date_filter').val().split(' - ')[1]
+                },
+                success:function(data){
+
+                    dataTable.clear();
+                    dataTable.destroy();
+                    
+                     $('#report-table tbody').append(data);
+                     buildDataTable();
+                }
+            });
         });
-        function getDateFrom(){
-            // var cc = $('#date_filter_value').val().split(' - ');
-            // console.log(cc);
-            // return cc;
-            var from = $('#date_filter_value').val().split(' - ');
-            // var to = from[1]; 
-            // from = from[0];
-            // return {from:from,to:to};
-            return from[0];
-        }
-        function getDateTo(){
-            var from = $('#date_filter_value').val().split(' - ');
-            return from[1];
-        }
-        function getDate(){
-            var from = $('#date_filter_value').val().split(' - ');
-            var to = from[1]; 
-            from = from[0];
-            return {from:from,to:to};
-            // return from[0];
-        }
 		
 	});
 
     function buildDataTable(){
         dataTable = $('#report-table').DataTable({
-        "paging":true,
-        "processing":true,
-        "serverSide":true,
-        "order": [],
-        "info":true,
-        "ajax":{
-            url:"<?php echo base_url();?>index.php/dashboard/patientsRecord/Report/visitDetails",
-            type:"POST",
-            data:{
-                from:$('#date_filter').val().split(' - ')[0],
-                to:$('#date_filter').val().split(' - ')[1]
-                }
-               },
-        "columnDefs":[
-            {
-                "targets":[0,3,4],
-                "orderable":false,
-            },
-        ],    
-        // "columns": [
-        //     { data: 'visitdate' },
-        //     { data: 'visitdate' },
-        //     { data: 'reg_card_number' },
-        //     { data: 'name' },
-        //     { data: 'age' },
-        //     { data: 'gender' },
-        // ],
         "dom": 'Bfrtip',
         "title": 'Bfrtip',
         "buttons": [
@@ -456,62 +424,5 @@ var dataTable;
     }
 </script>
 
-<script type="text/javascript">
-// $('input[name="datetimes"]').on('change',function(){
-    
-//     var from = $(this).val().split(' - ');
-//     var to = from[1]; 
-//     from = from[0]
-//     $.ajax({
-//         url: '<?php echo base_url();?>index.php/dashboard/patientsRecord/Report/visitDetails',
-//         method:'POST',
-//         data:{from:from,to:to},
-//         success:function(response){
-//             // console.log(response);
-//             // $('#report-table tbody').empty();
-//             // $('#report-table tbody').append( response );
-//             // populateDataTable(response);
-//             // $("#report-table").DataTable().clear();
-//             // $('#report-table').DataTable( {
-//             //     "ajax": response,
-//             //     destroy: true,
-//             //     "columns": [
-//             //         { "data": "visitdate" },
-//             //         { "data": "visitdate" },
-//             //         { "data": "reg_card_number" },
-//             //         { "data": "name" },
-//             //         { "data": "age" },
-//             //         { "data": "gender" }
-//             //     ]
-//             // } );
-//         }
-//     });
-// });
-
-  // populate the data table with JSON data
-  function populateDataTable(data) {
-    // console.log("populating data table...");
-    // clear the table before populating it with more data
-    $("#report-table").DataTable().clear();
-    data = JSON.parse(data);
-    var length = Object.keys(data.data).length;
-    // console.log(data);
-    for(var i = 0; i < length; i++) {
-    //   var customer = data.data['customer'+i];
-      var record = data.data[i];
-      console.log(record);
-      // You could also use an ajax property on the data table initialization
-      $('#report-table').dataTable().fnAddData( [
-        record.visitdate,
-        record.visitdate,
-        record.reg_card_number,
-        record.name,
-        record.age,
-        record.gender,
-      ]);
-    }
-  }
-
-</script>
 
     

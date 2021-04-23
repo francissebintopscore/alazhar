@@ -252,6 +252,8 @@
     <ul>
         <li><a href="<?php echo base_url();?>index.php/dashboard/patientsRecord/RecordCreation/">Registration</a></li>
         <li><a href="<?php echo base_url();?>index.php/dashboard/patientsRecord/Revisit/">Revisit</a></li>
+        <li><a href="<?php echo base_url();?>index.php/dashboard/patientsRecord/Report/">Revisit Report</a></li>
+        <li><a href="<?php echo base_url();?>index.php/dashboard/patientsRecord/Report/patients">Patient Report</a></li>
     </ul>
 </div>
 <div class="custom-container">
