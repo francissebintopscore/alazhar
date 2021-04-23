@@ -93,5 +93,39 @@ class Report extends CI_Controller {
         $data['report'] = $this->report->fetchPatientsDetails();
         $this->load->view('dashboard/patientsRecord/reportPatients', $data );
     }
+
+    public function test2(){
+
+        $dateFrom = '30-Mar-2021';
+        $dateTo = '31-Mar-2021';
+        $data['report'] = $this->report->fetchReport2( $dateFrom , $dateTo );
+        $this->load->view('dashboard/patientsRecord/report2', $data );
+
+
+	}
+    public function testData2(){
+
+
+        $dateFrom = $this->input->post('from');
+        $dateTo = $this->input->post('to');
+        $data['data'] = $report= $this->report->fetchReport2( $dateFrom , $dateTo );
+
+
+         $html = '';
+    
+        foreach( $report as $key => $value){
+            $html .=  '<tr>';
+            $html .=  '<td>' . ( $key + 1 )  . '</td>';
+            $html .=  '<td>' . $value->visitdate . '</td>';
+            $html .=  '<td>' . $value->reg_card_number . '</td>';
+            $html .=  '<td>' . $value->name . '</td>';
+            $html .=  '<td>' . $value->age . '</td>';
+            $html .=  '<td>' . $value->gender . '</td>';
+            $html .=  '</tr>';
+        }
+        echo $html;
+
+	}
+
 	
 }
