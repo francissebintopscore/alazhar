@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'http://alazhar:81/alazhar/';
-$config['base_url'] = 'http://al-azhar:81/alazhar/';
-// $config['base_url'] = 'http://172.16.14.20:81/alazhar/';
+// $config['base_url'] = 'http://al-azhar:81/alazhar/';
+$config['base_url'] = 'http://localhost/sebin/alazhar/';
 
 /*
 |--------------------------------------------------------------------------
