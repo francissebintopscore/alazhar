@@ -804,6 +804,17 @@
     		$(this).toggleClass('open');
     		$('.side-bar').toggleClass('active');
     	});
+
+        $('body').click(function(){
+            if( $('.side-bar').hasClass('active') ){
+                $('.side-bar').removeClass('active');
+                $('#nav-icon1').removeClass('open');
+            }
+        });
+        $('.side-bar,#nav-icon1').click(function(e){
+            e.stopPropagation();
+        });
+        
         //header height
         var HeadHeight = $('.header').outerHeight();
         $('.side-bar').css('top',HeadHeight);

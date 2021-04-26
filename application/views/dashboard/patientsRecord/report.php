@@ -283,6 +283,7 @@
             <tr>
                 <th>Sl no.</th>
                 <th>Visit Date</th>
+                <th>Department</th>
                 <th>OP number</th>
                 <th>Name</th>
                 <th>Age</th>
@@ -294,10 +295,17 @@
             $i  = 0;
             foreach ($report as $row)
             {
+                /**
+                *
+                *This is for initial loading only for filtering
+                *please check controllers/dashboard/patientrecord/report/
+                * public function visitDetails()
+                **/
                 ?>
                 <tr>
                     <td><?php echo ++$i;?></td>
                     <td><?php echo $row->visitdate;?></td>
+                    <td><?php echo $row->dept_name;?></td>
                     <td><?php echo $row->reg_card_number;?></td>
                     <td><?php echo $row->name;?></td>
                     <td><?php echo $row->age;?></td>
@@ -307,16 +315,6 @@
             }
             ?>
         </tbody>
-        <tfoot>
-            <tr>
-                <th>Sl no.</th>
-                <th>Visit Date</th>
-                <th>OP number</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-            </tr>
-        </tfoot>
     </table>
     <?php //print_r($report);?>
                 </div>
@@ -374,6 +372,17 @@ $(function() {
     		$(this).toggleClass('open');
     		$('.side-bar').toggleClass('active');
     	});
+
+        $('body').click(function(){
+            if( $('.side-bar').hasClass('active') ){
+                $('.side-bar').removeClass('active');
+                $('#nav-icon1').removeClass('open');
+            }
+        });
+        $('.side-bar,#nav-icon1').click(function(e){
+            e.stopPropagation();
+        });
+
         //header height
         var HeadHeight = $('.header').outerHeight();
         $('.side-bar').css('top',HeadHeight);
@@ -421,6 +430,13 @@ $(function() {
                     }
                 ]
         });
+
+         //adding a wrapper to main table so we can fix the table header through css only
+         var tableId = 'report-table';
+        $('<div class="table-outer-wrapper"></div>').
+                        append( $( '#' + tableId ) ).
+                        insertAfter( $( '#' + tableId + '_wrapper div' ).first()
+                        );
     }
 </script>
 

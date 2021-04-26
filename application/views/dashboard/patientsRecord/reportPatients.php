@@ -283,6 +283,19 @@
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Phone number</th>
+                <td>DOB</td>
+                <td>Blood Group</td>
+                <td>House</td>
+                <td>Place</td>
+                <td>Post Office</td>
+                <td>District</td>
+                <td>State</td>
+                <td>Pin</td>
+                <td>Gurdian Name</td>
+                <td>Emergency Contact</td>
+                <td>Category</td>
+                <td>Reg Date</td>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -300,6 +313,18 @@
                     <td><?php echo $row->age;?></td>
                     <td><?php echo $row->gender;?></td>
                     <td><?php echo $row->contact_number;?></td>
+                    <td><?php echo $row->dob;?></td>
+                    <td><?php echo $row->blood_group;?></td>
+                    <td><?php echo $row->house;?></td>
+                    <td><?php echo $row->Place;?></td>
+                    <td><?php echo $row->post_office;?></td>
+                    <td><?php echo $row->district;?></td>
+                    <td><?php echo $row->state;?></td>
+                    <td><?php echo $row->pin;?></td>
+                    <td><?php echo $row->parent_gurdian_name;?></td>
+                    <td><?php echo $row->emergency_contact;?></td>
+                    <td><?php echo $row->cat_name;?></td>
+                    <td><?php echo $row->reg_date;?></td>
                     <td>
                         <a href="<?php echo $url.$row->id;?>" class="btn btn-primary">Edit</a>
                     </td>
@@ -308,17 +333,6 @@
             }
             ?>
         </tbody>
-        <tfoot>
-            <tr>
-                <th>Sl no.</th>
-                <th>Date</th>
-                <th>OP number</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Phone number</th>
-            </tr>
-        </tfoot>
     </table>
                 </div>
             </div>
@@ -352,6 +366,16 @@ var dataTable;
     		$('.side-bar').toggleClass('active');
     	});
 
+        $('body').click(function(){
+            if( $('.side-bar').hasClass('active') ){
+                $('.side-bar').removeClass('active');
+                $('#nav-icon1').removeClass('open');
+            }
+        });
+        $('.side-bar,#nav-icon1').click(function(e){
+            e.stopPropagation();
+        });
+
         //header height
         var HeadHeight = $('.header').outerHeight();
         $('.side-bar').css('top',HeadHeight);
@@ -377,6 +401,14 @@ var dataTable;
                     }
                 ]
         });
+        
+        //adding a wrapper to main table so we can fix the table header through css only
+        var tableId = 'report-table';
+        $('<div class="table-outer-wrapper"></div>').
+                        append( $( '#' + tableId ) ).
+                        insertAfter( $( '#' + tableId + '_wrapper div' ).first()
+                        );
+
     }
 </script>
 

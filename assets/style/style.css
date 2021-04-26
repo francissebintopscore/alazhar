@@ -109,3 +109,43 @@ div#searchedModalBody table{margin-bottom: 0;}
     box-shadow: 0 0 0 0.2rem rgb(114 184 255)!important;
     cursor: not-allowed;
 }
+.side-bar ul li a:hover {
+    background-color: #1a4775;
+    text-decoration: none;
+}
+.side-bar ul li.active a {
+    background-color: #1a4775;
+    text-decoration: none;
+}
+
+/*******Report table********/
+#report-table th {
+    background-color: #4381c1;
+    color: #fff;
+}
+div#report-table_wrapper .dt-buttons{
+    order: 1;
+}
+div#report-table_filter{
+    order:2;
+}
+.dataTables_info{
+    order:4;
+}
+div#report-table_paginate{
+    order:5;
+}
+.table-outer-wrapper{
+    width: 100%;
+    overflow: auto;
+    order: 3;
+    position:relative;
+    height: 400px;
+}
+.table-outer-wrapper table th{
+    position:sticky;
+    top:0;
+    background-color:#fff;
+    color:#000;
+}
+/*******Report table********/

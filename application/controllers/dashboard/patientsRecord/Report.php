@@ -29,6 +29,7 @@ class Report extends CI_Controller {
             $html .=  '<tr>';
             $html .=  '<td>' . ( $key + 1 )  . '</td>';
             $html .=  '<td>' . $value->visitdate . '</td>';
+            $html .=  '<td>' . $value->dept_name . '</td>';
             $html .=  '<td>' . $value->reg_card_number . '</td>';
             $html .=  '<td>' . $value->name . '</td>';
             $html .=  '<td>' . $value->age . '</td>';
