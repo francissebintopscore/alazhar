@@ -140,6 +140,22 @@ $config = array(
 		                		'max_length' => 'The length of %s must not exceed 200 characters',
 		                ),
 		        ),
+				array(
+		                'field' => 'visitDate',
+		                'label' => 'Visiting Date',
+		                'rules' => 'callback_checkDateFormat',
+		                // 'errors'=> array(
+		                // 		'required' => 'You must provide a %s.',
+		                // ),
+		        ),
+				array(
+		                'field' => 'bremarks',
+		                'label' => 'Remarks',
+		                'rules' => 'max_length[200]|trim',
+		                'errors'=> array(
+		                		'max_length' => 'The length of %s must not exceed 200 characters',
+		                ),
+		        ),
 		       
 		    ),
 		    'updatePatientsRecord' => array(

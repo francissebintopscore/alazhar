@@ -778,22 +778,73 @@ if( $this->session->flashdata('regNo') ){
 	           </div>
 	        </div>
 	        </div>
-	        <div class="row align-items-center align-width" style="margin-top:10px;">
+            <!--  -->
+            <div class="row align-items-center" style="width: 100%;margin: auto;margin-top: 20px;border: 1px #9bcdda solid;padding:10px 5px;">
+                <div class="col-3">
+                <select class="form-control" id="department" name="department" style="width:100%">
+                    <option value="" selected="" disabled="">--select any--</option>
+                    <?php
+                    $oldvalue = set_value('department');
+                    foreach ($departments as $key => $value) {
+                        if( $value->id== $oldvalue){
+                            echo sprintf('<option value="%s" selected>%s</option>', $value->id, $value->dept_name );
+                        }
+                        else
+                        {
+                            echo sprintf('<option value="%s">%s</option>', $value->id, $value->dept_name );
+                        }
+                    }
+                    ?>
+                </select>
+                </div>
+                <div class="col-3" >
+                    <?php 
+                    if( form_error('visitDate') ){
+                        $errorClass = 'form-error-class';
+                        $errorHtml = sprintf( '<a class="form-error-class" href="#" data-toggle="tooltip" data-placement="right" title="%s">
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    </a>', form_error('visitDate') );
+                    }
+                    else{
+                        $errorClass = '';
+                        $errorHtml ='';
+                    }
+                    ?>
+                    <input class="form-control <?php echo $errorClass;?>" placeholder="Visit date" style="width:100%;" id="visitDate" name="visitDate" type="text" value="<?php echo set_value('visitDate'); ?>">
+                    <?php echo $errorHtml;?>
+                </div>
+                <div class="col-6">
+                    <?php 
+                    if( form_error('bremarks') ){
+                        $errorClass = 'form-error-class';
+                        $errorHtml = sprintf( '<a class="form-error-class" href="#" data-toggle="tooltip" data-placement="right" title="%s">
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    </a>', form_error('bremarks') );
+                    }
+                    else{
+                        $errorClass = '';
+                        $errorHtml ='';
+                    }
+                    ?>
+                     <textarea placeholder="Booking remarks" class="form-control <?php echo $errorClass;?>" style="height:38px;width:100%;" rows="2" id="bremarks" name="bremarks"  maxlength="200"><?php echo set_value('bremarks'); ?></textarea>
+                     <?php echo $errorHtml;?>
+                </div>
+            </div>
+            <!--  -->
+	        <div class="row align-items-center align-width" style="margin-top:10px;width:90%;">
 	            <div class="col-6">
 	                <div class="row align-items-center">
-	                    <div class="col-6">
+	                    <div class="col-8">
 	                        <div>
 	                            <div class="form-check-inline">
                 				 	<label><input type="checkbox" name="print[]" value="idcard" checked>Print ID card</label>
                 				</div>
-	                        </div>
-	                        <div>
-	                            <div class="form-check-inline">
+                                <div class="form-check-inline">
                 				  	<label><input type="checkbox" name="print[]"  value="coverPage" checked>Print Cover page</label>
                 				</div>
 	                        </div>
 	                    </div>
-	                    <div class="col-6">
+	                    <div class="col-4">
 	                        <button type="submit" id="saveAndPrint" name="saveAndPrint" class="btn btn-primary">Save and print</button>
 	                    </div>
 	                </div>
@@ -840,10 +891,9 @@ if( $this->session->flashdata('regNo') ){
         $('.side-bar').css('top',HeadHeight);
 
 
-		$( "#dob,#regDate" ).datepicker( {
+		$( "#dob,#regDate,#visitDate" ).datepicker( {
 		    format: 'dd-M-yyyy',autoclose:true} 
 		    );
-
         setTodaysDate();
 		$( "#dob" ).on( 'change', function(){
 			var age = 0, currentYear;
@@ -939,7 +989,7 @@ if( $this->session->flashdata('regNo') ){
     			day = '0'+day;
     		}
     
-    		$( "#regDate" ).val(day+'-'+months[curDate.getMonth()]+'-'+curDate.getFullYear());
+    		$( "#regDate,#visitDate" ).val(day+'-'+months[curDate.getMonth()]+'-'+curDate.getFullYear());
     
     	}
 

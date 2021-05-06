@@ -230,6 +230,9 @@
         top:0;
         background-color:#fff;
     } */
+    .table-bordered td, .table-bordered th{
+        padding: .60rem!important;
+    }
   </style>
 </head>
 <body>

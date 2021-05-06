@@ -131,7 +131,8 @@ class PatientsRecordsModel extends CI_Model {
         }
         else{
             echo '<script>alert("Record inserted sucessfully!");</script>';
-            return true;
+            $insert_id = $this->db->insert_id();
+            return  $insert_id;
         }
         
 

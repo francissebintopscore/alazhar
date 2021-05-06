@@ -149,3 +149,6 @@ div#report-table_paginate{
     color:#000;
 }
 /*******Report table********/
+.seperator-div .row:last-child {
+    margin-bottom: 0;
+}

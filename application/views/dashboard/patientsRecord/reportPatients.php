@@ -283,18 +283,18 @@
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Phone number</th>
-                <td>DOB</td>
-                <td>Blood Group</td>
-                <td>House</td>
-                <td>Place</td>
-                <td>Post Office</td>
-                <td>District</td>
-                <td>State</td>
-                <td>Pin</td>
-                <td>Gurdian Name</td>
-                <td>Emergency Contact</td>
-                <td>Category</td>
-                <td>Reg Date</td>
+                <th>DOB</th>
+                <th>Blood Group</th>
+                <th>House</th>
+                <th>Place</th>
+                <th>Post Office</th>
+                <th>District</th>
+                <th>State</th>
+                <th>Pin</th>
+                <th>Gurdian Name</th>
+                <th>Emergency Contact</th>
+                <th>Category</th>
+                <th>Reg Date</th>
                 <th></th>
             </tr>
         </thead>
@@ -326,7 +326,7 @@
                     <td><?php echo $row->cat_name;?></td>
                     <td><?php echo $row->reg_date;?></td>
                     <td>
-                        <a href="<?php echo $url.$row->id;?>" class="btn btn-primary">Edit</a>
+                        <a href="<?php echo $url.$row->id;?>" class="btn btn-primary" target="_blank">Edit</a>
                     </td>
                 </tr>
                 <?php

@@ -6,6 +6,7 @@ class RecordCreation extends CI_Controller {
 	public function __construct() {
             parent::__construct();
             $this->load->model('dashboard/patientsRecord/PatientsRecordsModel', 'precord');
+			$this->load->model('dashboard/patientsRecord/PatientsRevisitModel', 'revisit');
             // $this->load->helper('regno');
             $this->load->helper(array('form', 'url', 'regno', 'aucommon'));
         	$this->load->library('form_validation');
@@ -19,6 +20,7 @@ class RecordCreation extends CI_Controller {
 		if( !$regNo ){
 			$client = regno_getClientName();
 			$data['hiddenRegNo'] = $data['regNo'] = $this->precord->fetchNextRegNo();
+			$data['departments'] = $this->revisit->fetchDepartments();
 			$data['category'] = $this->precord->fetchCategory();
 
 			if ($this->form_validation->run('insertPatientsRecord') == FALSE){
@@ -148,9 +150,25 @@ class RecordCreation extends CI_Controller {
 
 		// return $regDetails;
 
-		$this->precord->insertPatientRecord( $regDetails, 'patients_record');
+		$insertedId = $this->precord->insertPatientRecord( $regDetails, 'patients_record');
 
-		
+
+		$visitDate = html_escape($this->input->post('visitDate'));
+		$department = intval( html_escape($this->input->post('department')));
+		$bremarks = html_escape($this->input->post('bremarks'));
+
+		if($department>0) {
+			$reVisitDetails = array(
+
+				'patients_id'   =>  $insertedId,
+				'visit_date '   =>  $visitDate,
+				'department_id' =>  $department,
+				'remarks'       =>  $bremarks
+			);
+			$this->precord->insertPatientRecord( $reVisitDetails, 'visit_details');
+		}
+
+		// print_r
 
 		$post = $this->input->post();
 		if( isset( $post['saveAndPrint'] ) ){
